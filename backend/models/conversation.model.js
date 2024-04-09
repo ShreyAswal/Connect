@@ -10,7 +10,7 @@ const conversationSchema = mongoose.Schema(
                 ref: 'User'
             }
         ],
-        conversation: [
+        messages: [
             {
                 // We will be storing Message Id's in this array.
                 type: mongoose.Schema.Types.ObjectId,
