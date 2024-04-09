@@ -1,8 +1,9 @@
-import Conversation from "../models/Conversation.model.js";
+import Conversation from "../models/conversation.model.js";
 import Message from "../models/message.model.js"
 const sendMessage = async (req, res) => {
   try {
-    const message = req.body;
+    console.log("Request body: ", req.body);
+    const message = req.body.message;
     const { id: receiverId } = req.params; //destructuring the id from the params, same as req.params.id, id in the url is of receiver user
     const senderId = req.user._id; // Getting the senderId from the authenticated user in the request object
 
@@ -26,9 +27,13 @@ const sendMessage = async (req, res) => {
       message
     })
 
+    console.log("New message: ", newMessage);
+
     if(newMessage){
       conversation.messages.push(newMessage._id);
     }
+
+    console.log("Conversation: ", conversation);
 
     // Save the conversation and message
     await conversation.save();
