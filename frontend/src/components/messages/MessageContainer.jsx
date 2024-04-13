@@ -5,7 +5,7 @@ import { TiMessages } from "react-icons/ti";
 
 // Main Messages Container component
 const MessageContainer = () => {
-  const noChatSelected = false;
+  const noChatSelected = true;
   return (
     <div className="md:min-w-[450px] flex flex-col">
       {noChatSelected ? <NoChatSelected /> : <>
@@ -25,6 +25,7 @@ const MessageContainer = () => {
 
 export default MessageContainer;
 
+// Default component to show when no chat is selected
 const NoChatSelected = () => {
   return (
   <div className='flex items-center justify-center w-full h-full'>
