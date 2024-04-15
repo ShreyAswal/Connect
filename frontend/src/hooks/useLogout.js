@@ -15,8 +15,8 @@ const useLogout = () => {
             headers:{ "Content-Type":"application/json" },
         });
         const data = await res.json();
-        if(data.error){
-            throw new Error(data.error);
+        if(data.message){
+            throw new Error(data.message);
         }
 
         localStorage.removeItem("chat-user");
