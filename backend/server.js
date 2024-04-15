@@ -16,7 +16,8 @@ const PORT = process.env.PORT;
 app.use(express.json()); //Middleware to parse JSON data
 app.use(cookieParser()); //Middleware to parse cookies
 
-app.use("/api/auth", AuthRoutes); //Middleware to use the routes for authentication
+// Routes
+app.use("/api/auth", AuthRoutes); // Routes for authentication
 app.use("/api/messages", MessageRoutes); //Routes for messages
 app.use("/api/users", UserRoutes); //Routes for users
 
