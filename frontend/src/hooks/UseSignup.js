@@ -11,13 +11,7 @@ const UseSignup = () => {
   const {setAuthUser} = useAuthContext();
 
   // Function to handle the signup process of the user and send the data to the server
-  const signup = async ({
-    fullName,
-    username,
-    password,
-    confirmPassword,
-    gender,
-  }) => {
+  const signup = async ({fullName,username,password,confirmPassword,gender}) => {
     const success = handleInputErrors({
       fullName,
       username,
@@ -27,6 +21,7 @@ const UseSignup = () => {
     });
     if (!success) return;
     setLoading(true);
+
     try {
       // Post request to the server to create a new user
       const res = await fetch("/api/auth/signup", {
@@ -37,8 +32,8 @@ const UseSignup = () => {
 
     // Data received from the server after the user is created successfully
     const data = await res.json();
-    if(data.error){
-      throw new Error(data.error);
+    if(data.message){
+      throw new Error(data.message);
     }
     console.log(data);
 
