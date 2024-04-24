@@ -5,7 +5,7 @@ function LogoutButton() {
   return (
     <div className="mt-auto">
       {!loading ? (
-        <TbLogout2 className="w-6 h-6" onClick={logout} />
+        <TbLogout2 className="w-6 h-6 cursor-pointer" onClick={logout} />
       ) : (
         <span className="loading loading-spinner"></span>
       )}
