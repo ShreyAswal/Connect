@@ -12,9 +12,8 @@ const useGetMessage = () => {
         setLoading(true);
         const res = await fetch(`/api/messages/${selectedConversation._id}`);
         const data = await res.json();
-        // console.log("data from DB", data);
 
-        if (data.error) {
+        if (res.status !== 200) {
           throw new Error(data.error);
         }
 
