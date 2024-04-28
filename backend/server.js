@@ -5,8 +5,7 @@ import AuthRoutes from "./routes/auth.routes.js";
 import MessageRoutes from "./routes/message.routes.js"
 import UserRoutes from "./routes/user.routes.js"
 import connectToMongoDB from "./db/connectToMongoDB.js";
-
-const app = express();
+import { app } from "./socket/socket.js";
 
 // PORT has to access the port number only after config() is called.
 dotenv.config();
